@@ -1,5 +1,5 @@
 <h1>My meetings</h1>
- 
+<%= link_to 'new meeting', new_meeting_path %>
 <table>
   <tr>
     <th>Title</th>
@@ -11,6 +11,10 @@
       <td><%= meeting.title %></td>
       <td><%= meeting.description %></td>
       <td><%= link_to 'Show', meeting_path(meeting) %></td>
+      <td><%= link_to 'Edit', edit_meeting_path(meeting)%></td>
+      <td><%= link_to 'Delete', meeting_path(meeting),
+              method: :delete,
+              data: { confirm: 'are you sure?'} %></td>
     </tr>
   <% end %>
 </table>
