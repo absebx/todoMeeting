@@ -1,8 +1,11 @@
 class MeetingsController < ApplicationController
+  http_basic_authenticate_with name: "test", password: "test", except:
+  [:index, :show]
+
     def index
         @meetings = Meeting.all
     end
-   
+
     def show
         @meeting = Meeting.find(params[:id])
     end

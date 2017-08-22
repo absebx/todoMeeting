@@ -1,4 +1,7 @@
 class TasksController < ApplicationController
+  http_basic_authenticate_with name: "test", password: "test", only:
+  :destroy
+
   def create
     @meeting = Meeting.find(params[:meeting_id])
     @task = @meeting.tasks.create(task_params)
