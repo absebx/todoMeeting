@@ -1,0 +1,11 @@
+<%= form_for([@meeting, @meeting.tasks.build]) do  |f|%>
+  <p>
+    <%= f.label :autor %><br>
+    <%=f.text_field :autor%>
+  </p>
+  <p><%= f.label :body%></p>
+  <p><%= f.text_area :body%></p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

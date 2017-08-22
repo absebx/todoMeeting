@@ -6,3 +6,8 @@
   <strong>Task: </strong>
   <%= task.body%>
 </p>
+<p>
+  <%= link_to 'destroy task', [task.meeting, task],
+                              method: :delete,
+                              data: {confirm: "are you sure?"}%>
+</p>
