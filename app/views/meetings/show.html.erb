@@ -2,10 +2,27 @@
   <strong>Title:</strong>
   <%= @meeting.title %>
 </p>
- 
+
 <p>
   <strong>Description:</strong>
   <%= @meeting.description %>
 </p>
 
+<h2>Tasks</h2>
+<%= render @meeting.tasks%>
+
+<h2>Add a task</h2>
+<%= form_for([@meeting, @meeting.tasks.build]) do |f|%>
+  <p>
+    <%= f.label :autor %><br>
+    <%=f.text_field :autor%>
+  </p>
+  <p><%= f.label :body%></p>
+  <p><%= f.text_area :body%></p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_meeting_path%>
 <%= link_to 'Back', meetings_path%>
