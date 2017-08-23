@@ -1,18 +1,21 @@
-<p>
-  <strong>Title:</strong>
-  <%= @meeting.title %>
-</p>
+<div class="container">
+  <p>
+    <strong>Title:</strong>
+    <%= @meeting.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @meeting.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @meeting.description %>
+  </p>
 
-<h2>Tasks</h2>
-<%= render @meeting.tasks%>
+  <h2>Tasks</h2>
+  <%= render @meeting.tasks%>
 
-<h2>Add a task</h2>
-<%= render 'tasks/form' %>
+  <h2>Add a task</h2>
+  <%= render 'tasks/form' %>
 
-<%= link_to 'Edit', edit_meeting_path%>
-<%= link_to 'Back', meetings_path%>
+  <%= link_to 'Edit', edit_meeting_path%>
+  <%= link_to 'Back', meetings_path%>
+</div>
+
