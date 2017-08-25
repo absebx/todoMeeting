@@ -1,21 +1,48 @@
 <div class="container">
   <h1>My meetings</h1>
-  <%= link_to 'new meeting', new_meeting_path %>
-  <table>
-    <tr>
-      <th>Title</th>
-      <th>description</th>
-    </tr>
+  <h4 class="text-primary">Add meeting
+    <%= link_to new_meeting_path, :class=>"btn btn-primary" do%>
+      <i class="fa fa-plus"></i>
+    <%end%>
+  </h4>
+  
+
+  <table class="table">
+    <thead>
+      <tr class="bg-primary">
+        <th>Title</th>
+        <th>description</th>
+        <th colspan=3>Actions</th>
+      </tr>
+    </thead>
+    
   
     <% @meetings.each do |meeting| %>
       <tr>
         <td><%= meeting.title %></td>
-        <td><%= meeting.description %></td>
-        <td><%= link_to 'Show', meeting_path(meeting) %></td>
-        <td><%= link_to 'Edit', edit_meeting_path(meeting)%></td>
-        <td><%= link_to 'Delete', meeting_path(meeting),
-                method: :delete,
-                data: { confirm: 'are you sure?'} %></td>
+        <td>
+          <%= meeting.description %>
+        </td>
+        <td>
+          <%= link_to meeting_path(meeting),
+                      :class => "text-success" do %>
+            <i class="fa fa-eye"></i>
+          <% end%>
+        </td>
+        <td>
+          <%= link_to edit_meeting_path(meeting),
+                      :class => "text-info" do%>
+            <i class="fa fa-pencil"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to meeting_path(meeting),
+                  method: :delete,
+                  data: { confirm: 'are you sure?'},
+                  :class => "text-danger" do%>
+          <i class="fa fa-trash"></i>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </table>
